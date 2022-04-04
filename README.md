@@ -2,6 +2,10 @@
 
 http://structure.io/openni
 
+## Fork for Natar & PapARt
+
+This fork only adds a POM.xml file to compile & use with Maven.
+
 ## Develop branch ##
 
 The latest ongoing development is currently being done in the develop branch.  Refer to README and ReleasesNotes in the develop branch for up to date build instructions.
@@ -31,13 +35,13 @@ Other than that, sensible and meaningful contributions are very welcome!
 - PyWin32
 
     - Download and install from: http://sourceforge.net/projects/pywin32/files/pywin32/
-    
+
     Please make sure you download the version that matches your exact python version.
 
 - JDK 6.0
 
     - Download and install from: http://www.oracle.com/technetwork/java/javase/downloads/jdk-6u32-downloads-1594644.html
-    
+
     You must also define an environment variable called `JAVA_HOME` that points to the JDK installation directory. For example:
 
     	set JAVA_HOME=c:\Program Files (x86)\Java\jdk1.6.0_32
@@ -61,7 +65,7 @@ Other than that, sensible and meaningful contributions are very welcome!
 	- Download and install from: http://gcc.gnu.org/releases.html
 
     - Or use `apt`:
-    	
+
 	    	sudo apt-get install g++
 
 - Python 2.6+/3.x
@@ -89,7 +93,7 @@ Other than that, sensible and meaningful contributions are very welcome!
     - Download and install from: http://www.oracle.com/technetwork/java/javase/downloads/jdk-6u32-downloads-1594644.html
 
     - Or use `apt`:
-    
+
     	- On Ubuntu 10.x:
 
 				sudo add-apt-repository "deb http://archive.canonical.com/ lucid partner"
@@ -113,7 +117,7 @@ Other than that, sensible and meaningful contributions are very welcome!
     - Download and install from: http://www.stack.nl/~dimitri/doxygen/download.html#latestsrc
 
     - Or use `apt`:
-    
+
     		sudo apt-get install doxygen
 
 - GraphViz
@@ -121,7 +125,7 @@ Other than that, sensible and meaningful contributions are very welcome!
     - Download and install from: http://www.graphviz.org/Download_linux_ubuntu.php
 
     - Or use `apt`:
-    
+
     		sudo apt-get install graphviz
 
 ### Android
