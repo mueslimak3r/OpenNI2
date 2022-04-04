@@ -212,6 +212,13 @@ XnStatus DepthUtilsImpl::SetDepthConfiguration(int xres, int yres, OniPixelForma
 		m_pDepth2ShiftTable = (XnUInt16*)m_pDepthToShiftTable_VGA;
 		m_pRegistrationInfo = &m_blob.params1080.registrationInfo_VGA;
 	}
+	else if (xres == 1280 && yres == 1024)
+	{
+		m_pPadInfo = &m_blob.params1080.padInfo_SXGA;
+		m_pRegTable = m_pRegistrationTable_SXGA;
+		m_pDepth2ShiftTable = (XnUInt16*)m_pDepthToShiftTable_SXGA;
+		m_pRegistrationInfo = &m_blob.params1080.registrationInfo_SXGA;
+	}
 	else
 	{
 		return XN_STATUS_BAD_PARAM;
