@@ -91,7 +91,7 @@ ALL_SAMPLES = \
 # list all projects that are build
 ALL_BUILD_PROJS = \
 	$(ALL_CORE_PROJS) \
-	$(ALL_SAMPLES)
+	#$(ALL_SAMPLES)
 
 ALL_PROJS = \
 	$(ALL_BUILD_PROJS)
