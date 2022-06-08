@@ -1,0 +1,69 @@
+# Maintainer: Sven Schneider <archlinux.sandmann@googlemail.com>
+# Contributor: bugix
+# Contributor: Lubosz Sarnecki <lubosz at gmail>
+
+pkgname=openni-natar-git
+pkgver=r576.bcc80dc
+pkgrel=1
+pkgdesc="The OpenNI Framework provides the interface for physical devices and for middleware components"
+arch=('i686' 'x86_64')
+url="http://www.openni.org/"
+license=('GPL')
+depends=('freeglut' 'mesa' 'libusb' 'java-environment')
+makedepends=('git')
+provides=('openni')
+conflicts=('openni')
+md5sums=('SKIP')
+source=('openni-natar-git::git+https://github.com/natar-io/OpenNI2.git')
+
+
+pkgver() {
+	cd "$srcdir/${pkgname}"
+# Git, no tags available
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+
+build() {
+  cd "$srcdir/${pkgname}"
+
+  LDFLAGS+=' -lGL -lglut -lGLU ' make
+  LDFLAGS+=' -lGL -lglut -lGLU ' make
+  # BUILD Jar.
+  #cd Wrappers/java
+  #make 
+  # mvn install 
+}
+
+package() {
+
+	cd "$srcdir/${pkgname}"
+	
+  ## Binary
+  #make DESTDIR="$pkgdir/" install
+  #cd Wrappers/java
+  #make DESTDIR="$pkgdir/" install
+  ## Jar 
+  mkdir -p "${pkgdir}/usr/lib/"
+  install -Dm655 ./Bin/x64-Release/org.openni.jar "${pkgdir}/usr/lib/"
+  install -Dm655 ./Bin/x64-Release/libOpenNI2.jni.so "${pkgdir}/usr/lib/"
+  install -Dm655 ./Bin/x64-Release/libOpenNI2.so "${pkgdir}/usr/lib/"
+  cp -r ./Bin/x64-Release/OpenNI2 "${pkgdir}/usr/lib/OpenNI2"
+
+  mkdir -p "${pkgdir}/etc/udev/rules.d/"
+  ## USB Rules 
+  install -Dm655 "./Packaging/Linux/primesense-usb.rules" "${pkgdir}/etc/udev/rules.d/56-orbbec-usb.rules"
+
+  #cd "${srcdir}/${_gitname}-build/Include"
+  #install *.h "${pkgdir}/usr/include/ni"
+  #install Linux-x86/* "${pkgdir}/usr/include/ni/Linux-x86"
+
+  #cd "${srcdir}/${_gitname}-build/Data"
+  #install SamplesConfig.xml "${pkgdir}/usr/share/openni"
+
+  #cd "${srcdir}/${_gitname}-build/Platform/Linux/Bin/${_platform}-Release"
+  #install niLicense niReg "${pkgdir}/usr/bin"
+  #install Sample* "${pkgdir}/usr/bin"
+
+  # install libnimCodecs.so libnimMockNodes.so libnimRecorder.so libOpenNI.so libOpenNI.jni.so "${pkgdir}/usr/lib"
+}
