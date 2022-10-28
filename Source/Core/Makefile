@@ -15,12 +15,15 @@ SRC_FILES = \
 	../Drivers/OniFile/Formats/XnStreamCompression.cpp \
 	../../ThirdParty/LibJPEG/*.c \
 
+# OSX-M1
 ifeq ("$(OSTYPE)","Darwin")
 	INC_DIRS += \
 		/usr/local/include \
+		/opt/homebrew/Cellar/libusb/1.0.26/include/ \
 		/opt/local/include
 	LIB_DIRS += \
 		/usr/local/lib \
+		/opt/homebrew/Cellar/libusb/1.0.26/lib \
 		/opt/local/lib
 	LDFLAGS += \
 		-framework CoreFoundation \

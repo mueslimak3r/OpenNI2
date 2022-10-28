@@ -16,6 +16,9 @@ SRC_FILES = \
 
 LIB_DIRS  = ../../../ThirdParty/PSCommon/XnLib/Bin/$(PLATFORM)-$(CFG)
 LIB_DIRS += $(BIN_DIR)/$(PLATFORM)-$(CFG)
+ifeq ("$(OSTYPE)","Darwin")
+	LIB_DIRS += /opt/homebrew/Cellar/libusb/1.0.26/lib
+endif 
 USED_LIBS = XnLib dl pthread
 
 ifeq ("$(OSTYPE)","Darwin")

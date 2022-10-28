@@ -6,6 +6,19 @@ http://structure.io/openni
 
 This fork only adds a POM.xml file to compile & use with Maven.
 
+
+`brew install libusb --universal`
+
+``` 
+    ## ARM default 
+    # CFLAGS += -march=armv7-a -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp #-mcpu=cortex-a8
+    ## OSX M1
+    CFLAGS += -mcpu=apple-m1 -mfloat-abi=hard
+    # Optimization level, minus currently buggy optimizing methods (which break bit-exact)
+    CFLAGS += -O3 -fno-strict-aliasing
+    ## removed  -fno-tree-pre for OSX
+```
+
 ## Develop branch ##
 
 The latest ongoing development is currently being done in the develop branch.  Refer to README and ReleasesNotes in the develop branch for up to date build instructions.

@@ -1,10 +1,20 @@
 ifeq "$(CFG)" "Release"
 
     # Hardware specifying flags
-    CFLAGS += -march=armv7-a -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp #-mcpu=cortex-a8
+
+    ## ARM default 
+    # CFLAGS += -march=armv7-a -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp #-mcpu=cortex-a8
+    ## OSX M1
+    CFLAGS += -mcpu=apple-m1 -mfloat-abi=hard
+
+    ## Added  libsub
+    CFLAGS += -mcpu=apple-m1 -mfloat-abi=hard 
+    CFLAGS += -I /opt/homebrew/Cellar/libusb/1.0.26/include/ -L /opt/homebrew/Cellar/libusb/1.0.26/lib
 
     # Optimization level, minus currently buggy optimizing methods (which break bit-exact)
-    CFLAGS += -O3 -fno-tree-pre -fno-strict-aliasing
+
+    CFLAGS += -O3 -fno-strict-aliasing 
+    ## removed  -fno-tree-pre for OSX
 
     # More optimization flags
     CFLAGS += -ftree-vectorize -ffast-math -funsafe-math-optimizations #-fsingle-precision-constant

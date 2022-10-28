@@ -23,6 +23,7 @@ ifeq ("$(OSTYPE)","Darwin")
 		/opt/local/include
 	LIB_DIRS += \
 		/usr/local/lib \
+	  /opt/homebrew/Cellar/libusb/1.0.26/lib \
 		/opt/local/lib
 	LDFLAGS += \
 		-framework CoreFoundation \
