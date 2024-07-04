@@ -9,7 +9,7 @@ ifeq "$(CFG)" "Release"
 
     ## Added  libsub
     CFLAGS += -mcpu=apple-m1 -mfloat-abi=hard 
-    CFLAGS += -I /opt/homebrew/Cellar/libusb/1.0.26/include/ -L /opt/homebrew/Cellar/libusb/1.0.26/lib
+    CFLAGS += -I /opt/homebrew/Cellar/libusb/1.0.27/include/ -L /opt/homebrew/Cellar/libusb/1.0.27/lib
 
     # Optimization level, minus currently buggy optimizing methods (which break bit-exact)
 
